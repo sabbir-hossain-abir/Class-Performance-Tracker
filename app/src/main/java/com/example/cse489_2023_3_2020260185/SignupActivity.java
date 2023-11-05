@@ -156,8 +156,8 @@ public class SignupActivity extends AppCompatActivity {
                     edit.putBoolean("remember-user-id", false);
                     edit.putBoolean("remember-user-password", false);
                     edit.apply();
-
                     Intent  intent = new Intent(SignupActivity.this, ClassLecturesActivity.class);
+                    intent.putExtra("User Name", nameEditText.getText().toString());
                     startActivity(intent);
                 }
 
