@@ -197,13 +197,14 @@
                 android:textSize="16dp"
                 android:paddingLeft="8dp"
                 android:paddingRight="8dp"/>
+
             <EditText
                 android:id="@+id/lecture"
-                android:text=""
-                android:textSize="16dp"
                 android:layout_weight="1"
                 android:hint="Enter Lecture Number"
-                android:inputType="number"/>
+                android:inputType="number"
+                android:text=""
+                android:textSize="16dp" />
         </TableRow>\
 
         <TableRow
