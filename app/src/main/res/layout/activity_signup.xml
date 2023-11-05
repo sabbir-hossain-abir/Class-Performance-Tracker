@@ -132,15 +132,17 @@
                 android:paddingLeft="8dp"
                 android:paddingRight="8dp"/>
             <EditText
-                android:id="@id/tvPassword"
+                android:id="@+id/tvRePassword"
                 android:text=""
                 android:textSize="16dp"
-                android:layout_weight="1"/>
+                android:layout_weight="1"
+                android:inputType="textPassword"/>
         </TableRow>
 
         <TableRow
             android:layout_marginTop="8dp">
             <CheckBox
+                android:id="@+id/cbUserID"
                 android:layout_gravity="left"
                 android:text="Remember User ID"
                 android:layout_span="3">
@@ -149,6 +151,7 @@
 
         <TableRow>
             <CheckBox
+                android:id="@+id/cbPassword"
                 android:layout_gravity="left"
                 android:text="Remember Password"
                 android:layout_span="3">
@@ -182,7 +185,7 @@
             android:backgroundTint="#FFbb00"
             android:textColor="@color/black"/>
         <Button
-            android:id="@+id/btnSave"
+            android:id="@+id/btnGo"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
