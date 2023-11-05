@@ -27,6 +27,7 @@ public class ClassLecturesActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(ClassLecturesActivity.this, ClassSummaryActivity.class);
+                intent.putExtra("userID", "2020-2-60-185");
                 startActivity(intent);
             }
         });

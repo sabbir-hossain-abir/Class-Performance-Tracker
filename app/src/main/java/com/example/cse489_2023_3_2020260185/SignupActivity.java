@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -15,14 +16,15 @@ import android.widget.EditText;
 public class SignupActivity extends AppCompatActivity {
 
 
+
     //Validate Name
 //    private Boolean validateName() {
-//        if (name.isEmpty()) {
-//            nameEditText.setError("Field cannot be empty");
+//        if (name.getText().toString().isEmpty()) {
+//            name.setError("Field cannot be empty");
 //            return false;
 //        }
 //        else {
-//            nameEditText.setError(null);
+//            name.setError(null);
 //            return true;
 //        }
 //    }
@@ -115,13 +117,6 @@ public class SignupActivity extends AppCompatActivity {
         CheckBox checkBoxUserID = findViewById(R.id.cbUserID);
         CheckBox checkBoxPassword = findViewById(R.id.cbPassword);
 
-        //Checks if fields are empty
-//        String name = nameEditText.getText().toString();
-//        String email = emailEditText.getText().toString();
-//        String phone = phoneEditText.getText().toString();
-//        String userID = userIDEditText.getText().toString();
-//        String password = passwordEditText.getText().toString();
-//        String reEnterPassword = rEnterPassword.getText().toString();
 
         buttonGo.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -129,8 +124,12 @@ public class SignupActivity extends AppCompatActivity {
                 if (TextUtils.isEmpty(nameEditText.getText().toString())) {
                     nameEditText.setError("Name can not be empty");
                 }
-                else if (TextUtils.isEmpty(emailEditText.getText().toString())){
-                    emailEditText.setError("Email can not be empty");
+                else if (!Patterns.EMAIL_ADDRESS.matcher(emailEditText.getText().toString()).matches()){
+                    emailEditText.setError("Invalid Email");
+                }
+                else if (TextUtils.isEmpty(emailEditText.getText().toString())) {
+                    nameEditText.setError("Email can not be empty");
+
                 }
                 else if (TextUtils.isEmpty(phoneEditText.getText().toString())){
                     phoneEditText.setError("Phone can not be empty");
@@ -141,9 +140,10 @@ public class SignupActivity extends AppCompatActivity {
                 else if (TextUtils.isEmpty(passwordEditText.getText().toString())){
                     passwordEditText.setError("Password can not be empty");
                 }
-                else if (TextUtils.isEmpty(rEnterPassword.getText().toString())){
-                    rEnterPassword.setError("Password can not be empty");
+                else if (!passwordEditText.getText().toString().equals(rEnterPassword.getText().toString())){
+                    rEnterPassword.setError("Passwords do NOT match");
                 }
+
                 else{
                     SharedPreferences localPref = SignupActivity.this.getPreferences(MODE_PRIVATE);
                     SharedPreferences.Editor edit = localPref.edit();

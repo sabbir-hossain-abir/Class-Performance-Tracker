@@ -7,9 +7,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 public class ClassSummaryActivity extends AppCompatActivity {
 
+    private TextView userID;
     private EditText etTopic;
 
     @Override
@@ -18,6 +20,12 @@ public class ClassSummaryActivity extends AppCompatActivity {
         setContentView(R.layout.activity_class_summary);
 
         etTopic = findViewById(R.id.etTopic);
+        userID = findViewById(R.id.tvID);
+
+        Intent intent = this.getIntent();
+        String userid = intent.getStringExtra("userID");
+        userID.setText(userid);
+
         Button buttonCancel = findViewById(R.id.btnCancel);
 
         findViewById(R.id.btnSave).setOnClickListener(new View.OnClickListener() {

@@ -58,7 +58,7 @@
                 android:paddingRight="8dp"/>
             <TextView
                 android:id="@+id/tvID"
-                android:text="2020-2-60-185"
+                android:text=""
                 android:textSize="16dp"/>
         </TableRow>
 
