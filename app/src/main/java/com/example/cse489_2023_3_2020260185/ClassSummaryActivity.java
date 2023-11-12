@@ -8,6 +8,8 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteOpenHelper;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -16,12 +18,7 @@ public class ClassSummaryActivity extends AppCompatActivity {
     private TextView tvName;
     private TextView tvID;
     private RadioGroup radioGrp1;
-    private RadioButton radioBtn1;
-    private RadioButton radioBtn2;
-    private RadioButton radioBtn3;
-    private RadioButton radioBtn4;
-    private RadioButton radioBtn5;
-    private RadioButton radioBtn6;
+    private RadioButton radioBtn1, radioBtn2, radioBtn3, radioBtn4, radioBtn5, radioBtn6;
     private EditText tvDate;
     private EditText lecture;
     private EditText etTopic;
@@ -85,7 +82,7 @@ public class ClassSummaryActivity extends AppCompatActivity {
 //////////////////////          If the data is valid store it to database            /////////////////////////////
 
 //                else{
-//                    if (LectureSummary.isEmpty()){
+//                    if (LectureSummary.id.isEmpty()){
 //                        LectureSummary = topic + System.currentTimeMillis();
 //                        LectureSummaryDB.inserLectureSummary(String ID, String name, String course, int date, int lecture, String topicName, String lectureSummary)
 //                        finish();
