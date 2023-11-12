@@ -179,7 +179,7 @@
             android:paddingRight="8dp"
             android:layout_gravity="center_vertical"/>
         <EditText
-            android:id="@+id/Date"
+            android:id="@+id/tvDate"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:inputType="date"/>
