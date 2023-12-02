@@ -2,10 +2,12 @@ package com.example.cse489_2023_3_2020260185;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.assist.AssistStructure;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
@@ -105,6 +107,13 @@ public class SignupActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
 
+        SharedPreferences preferences = getSharedPreferences("checkbox", MODE_PRIVATE);
+        String checkbox = preferences.getString("remember","");
+        if (checkbox.equals("true")){
+
+            Intent intent = new Intent(SignupActivity.this,ClassLecturesActivity.class);
+            startActivity(intent);
+        }
 
         EditText nameEditText = findViewById(R.id.tvName);
         EditText emailEditText = findViewById(R.id.tvEmail);
@@ -158,7 +167,25 @@ public class SignupActivity extends AppCompatActivity {
                     edit.apply();
                     Intent  intent = new Intent(SignupActivity.this, ClassLecturesActivity.class);
                     intent.putExtra("User Name", nameEditText.getText().toString());
+
+
+                    if (checkBoxUserID.isChecked()){
+                        SharedPreferences preferences = SignupActivity.this.getSharedPreferences("checkbox", MODE_PRIVATE);
+                        SharedPreferences.Editor editor = preferences.edit();
+                        editor.putString("remember", "true");
+                        editor.apply();
+                    } else if (!checkBoxUserID.isChecked()) {
+
+                        SharedPreferences preferences = SignupActivity.this.getSharedPreferences("checkbox", MODE_PRIVATE);
+                        SharedPreferences.Editor editor = preferences.edit();
+                        editor.putString("remember", "false");
+                        editor.apply();
+                    }
+
                     startActivity(intent);
+                    Log.d("SharedPreferences", "Saved email: " + emailEditText);
+                    Log.d("SharedPreferences", "Saved name: " + nameEditText);
+
                 }
 
             }

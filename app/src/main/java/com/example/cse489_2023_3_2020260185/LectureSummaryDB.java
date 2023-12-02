@@ -16,9 +16,10 @@ public class LectureSummaryDB extends SQLiteOpenHelper {
         String sql = "CREATE TABLE LectureSummary ("
                 + "ID TEXT PRIMARY KEY,"
                 + "name TEXT,"
-                + "course INT,"
-                + "date INT,"
-                + "lecture INT,"
+                + "course TEXT,"
+                + "type TEXT,"
+                + "date TEXT,"
+                + "lecture TEXT,"
                 + "topicName TEXT,"
                 + "lectureSummary TEXT"
                 + ")";
@@ -30,12 +31,13 @@ public class LectureSummaryDB extends SQLiteOpenHelper {
         // db.execSQL("ALTER table my_table  ......");
         // db.execSQL("CREATE TABLE  ......");
     }
-    public void insertLectureSummary(String ID, String name, String course, int date, int lecture, String topicName, String lectureSummary) {
+    public void insertLectureSummary(String ID, String name, String course, String type, String date, String lecture, String topicName, String lectureSummary) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cols = new ContentValues();
         cols.put("ID", ID);
         cols.put("name", name);
         cols.put("course", course);
+        cols.put("type",type);
         cols.put("date", date);
         cols.put("lecture", lecture);
         cols.put("topicName", topicName);
@@ -43,12 +45,13 @@ public class LectureSummaryDB extends SQLiteOpenHelper {
         db.insert("LectureSummary", null ,  cols);
         db.close();
     }
-    public void updateLectureSummary(String ID, String name, String course, int date, int lecture, String topicName, String lectureSummary) {
+    public void updateLectureSummary(String ID, String name, String course, String type, String date, String lecture, String topicName, String lectureSummary) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cols = new ContentValues();
         cols.put("ID", ID);
         cols.put("name", name);
         cols.put("course", course);
+        cols.put("type", type);
         cols.put("date", date);
         cols.put("lecture", lecture);
         cols.put("topicName", topicName);

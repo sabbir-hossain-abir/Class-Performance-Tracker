@@ -199,10 +199,9 @@
                 android:paddingRight="8dp"/>
 
             <EditText
-                android:id="@+id/lecture"
+                android:id="@+id/tvLecture"
                 android:layout_weight="1"
                 android:hint="Enter Lecture Number"
-                android:inputType="number"
                 android:text=""
                 android:textSize="16dp" />
         </TableRow>\
